@@ -1,3 +1,4 @@
+import com.google.gson.Gson
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -11,5 +12,16 @@ fun main() {
     val response = client
         .send(request, BodyHandlers.ofString())
     val json = response.body()
-    println(json)
+
+    val gson = Gson()
+    val myInfoGame = gson.fromJson(
+        json,
+        GameInfo::class.java
+    )
+    val myGame = Game(
+        title = myInfoGame.info.title,
+        image = myInfoGame.info.thumb
+    )
+
+    println(myGame)
 }
