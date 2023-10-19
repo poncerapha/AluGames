@@ -1,3 +1,5 @@
+package br.com.alura.alugames.models
+
 data class Game(
     val title: String,
     val image: String

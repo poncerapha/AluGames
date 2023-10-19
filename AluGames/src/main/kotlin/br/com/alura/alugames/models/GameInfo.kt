@@ -1,3 +1,5 @@
+package br.com.alura.alugames.models
+
 data class GameInfo(
     val info: InfoApiShark
 ) {
